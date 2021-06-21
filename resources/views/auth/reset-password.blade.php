@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="text-center mb-3">
                         <i class="icon-spinner11 icon-2x text-warning border-warning border-3 rounded-pill p-3 mb-3 mt-1"></i>
-                        <h5 class="mb-0">Update your password</h5>
+                        <h5 class="mb-0">{{ __('auth/reset-password.Update your password') }}</h5>
                     </div>
 
                     <div class="form-group form-group-feedback form-group-feedback-right">
@@ -18,14 +18,15 @@
                                name="email"
                                value="{{ old('email',$request->email) }}"
                                class="form-control"
-                               placeholder="Your email" required>
+                               title="{{ __('auth/reset-password.email') }}"
+                               placeholder="{{ __('auth/reset-password.email') }}" required>
                         <div class="form-control-feedback">
                             <i class="icon-mail5 text-muted"></i>
                         </div>
                         @error('email')
                         <span class="form-text text-danger">
-                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
-                                        </span>
+                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                        </span>
                         @enderror
                     </div>
                     <div class="form-group form-group-feedback form-group-feedback-right">
@@ -33,7 +34,8 @@
                                name="password"
                                value="{{ old('password') }}"
                                class="form-control"
-                               placeholder="Your new password" required>
+                               title="{{ __('auth/reset-password.password') }}"
+                               placeholder="{{ __('auth/reset-password.password') }}" required>
                         <div class="form-control-feedback">
                             <i class="icon-lock text-muted"></i>
                         </div>
@@ -48,7 +50,8 @@
                                name="password_confirmation"
                                value="{{ old('password_confirmation') }}"
                                class="form-control"
-                               placeholder="Confirm your new password" required>
+                               title="{{ __('auth/reset-password.password_confirmation') }}"
+                               placeholder="{{ __('auth/reset-password.password_confirmation') }}" required>
                         <div class="form-control-feedback">
                             <i class="icon-lock text-muted"></i>
                         </div>
@@ -60,7 +63,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">
-                        <i class="icon-spinner11 mr-2"></i> Reset password
+                        <i class="icon-spinner11 mr-2"></i> {{ __('auth/reset-password.Reset password') }}
                     </button>
                 </div>
             </div>

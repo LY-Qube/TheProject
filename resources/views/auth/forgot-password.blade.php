@@ -10,11 +10,11 @@
                 <div class="card-body">
                     <div class="text-center mb-3">
                         <i class="icon-spinner11 icon-2x text-warning border-warning border-3 rounded-pill p-3 mb-3 mt-1"></i>
-                        <h5 class="mb-0">Password recovery</h5>
+                        <h5 class="mb-0">{{ __('auth/forgot-password.Password recovery') }}</h5>
                         @if (session('status'))
                             <span class="d-block text-success">{{ session('status') }}</span>
                         @else
-                            <span class="d-block text-muted">We'll emailed your password reset link!</span>
+                            <span class="d-block text-muted">{{ __("auth/forgot-password.We'll emailed") }}</span>
                         @endif
                     </div>
 
@@ -23,8 +23,8 @@
                                name="email"
                                value="{{ old('email') }}"
                                class="form-control"
-                               title="Your email"
-                               placeholder="Your email" required>
+                               title="{{ __('auth/forgot-password.email') }}"
+                               placeholder="{{ __('auth/forgot-password.email') }}" required>
                         <div class="form-control-feedback">
                             <i class="icon-mail5 text-muted"></i>
                         </div>
@@ -36,7 +36,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">
-                        <i class="icon-spinner11 mr-2"></i> Reset password
+                        <i class="icon-spinner11 mr-2"></i> {{ __('auth/forgot-password.Reset password') }}
                     </button>
                 </div>
             </div>

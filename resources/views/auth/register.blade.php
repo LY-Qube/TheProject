@@ -17,8 +17,8 @@
                         <div class="card-body">
                             <div class="text-center mb-3">
                                 <i class="icon-plus3 icon-2x text-success border-success border-3 rounded-pill p-3 mb-3 mt-1"></i>
-                                <h5 class="mb-0">Sign Up</h5>
-                                <span class="d-block text-muted">All fields are required</span>
+                                <h5 class="mb-0">{{ __('auth/register.sign up') }}</h5>
+                                <span class="d-block text-muted">{{ __('auth/register.fields') }}</span>
                             </div>
 
                             <div class="row">
@@ -27,9 +27,9 @@
                                         <input type="text"
                                                name="first_name"
                                                value="{{ old('first_name') }}"
-                                               title="First Name"
+                                               title="{{ __('auth/register.first name') }}"
                                                class="form-control"
-                                               placeholder="First name" required>
+                                               placeholder="{{ __('auth/register.first name') }}" required>
                                         <div class="form-control-feedback">
                                             <i class="icon-user-check text-muted"></i>
                                         </div>
@@ -46,9 +46,9 @@
                                         <input type="text"
                                                name="last_name"
                                                value="{{ old('last_name') }}"
-                                               title="Last Name"
+                                               title="{{ __('auth/register.last name') }}"
                                                class="form-control"
-                                               placeholder="Last name" required>
+                                               placeholder="{{ __('auth/register.last name') }}" required>
                                         <div class="form-control-feedback">
                                             <i class="icon-user-check text-muted"></i>
                                         </div>
@@ -69,8 +69,8 @@
                                                name="email"
                                                value="{{ old('email', request('email')) }}"
                                                class="form-control"
-                                               title="Your email"
-                                               placeholder="Your email" required>
+                                               title="{{ __('auth/register.email') }}"
+                                               placeholder="{{ __('auth/register.email') }}" required>
                                         <div class="form-control-feedback">
                                             <i class="icon-mention text-muted"></i>
                                         </div>
@@ -90,8 +90,8 @@
                                         <input type="password"
                                                name="password"
                                                class="form-control"
-                                               title="Create password"
-                                               placeholder="Create password" required>
+                                               title="{{ __('auth/register.password') }}"
+                                               placeholder="{{ __('auth/register.password') }}" required>
                                         <div class="form-control-feedback">
                                             <i class="icon-user-lock text-muted"></i>
                                         </div>
@@ -107,9 +107,9 @@
                                     <div class="form-group form-group-feedback form-group-feedback-right">
                                         <input type="password"
                                                name="password_confirmation"
-                                               title="Repeat password"
+                                               title="{{ __('auth/register.password confirmation') }}"
                                                class="form-control"
-                                               placeholder="Repeat password" required>
+                                               placeholder="{{ __('auth/register.password confirmation') }}" required>
                                         <div class="form-control-feedback">
                                             <i class="icon-user-lock text-muted"></i>
                                         </div>
@@ -126,7 +126,9 @@
                                 <label class="custom-control custom-checkbox">
                                     <input type="checkbox" name="terms" class="custom-control-input" checked>
                                     <span class="custom-control-label">
-                                        Accept <a href="{{ route('coming') }}">&nbsp;terms of service</a></span>
+                                        {{ __('auth/register.accept') }}
+                                        <a href="{{ route('coming') }}">&nbsp;{{ __('auth/register.terms of service') }}</a>
+                                    </span>
                                 </label>
                                 @error('terms')
                                 <span class="form-text text-danger">
@@ -139,7 +141,7 @@
                         <div class="card-footer bg-transparent text-right">
                             <button type="submit" class="btn btn-teal btn-labeled btn-labeled-right"><b>
                                     <i class="icon-plus3"></i></b>
-                                Create your account
+                                {{ __('auth/register.create') }}
                             </button>
                         </div>
                     </div>

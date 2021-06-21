@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\Auth\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -35,6 +36,7 @@ class User extends Authenticatable
         'avatar',
         'email',
         'password',
+        'lang',
         'is_admin',
         'creator_id'
     ];
@@ -67,6 +69,11 @@ class User extends Authenticatable
     public function socialNetwork(): HasOne
     {
         return $this->hasOne(SocialNetwork::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 
 }

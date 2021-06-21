@@ -15,6 +15,10 @@
     <link href="{{ asset('limitless/assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
 
+    <!-- Livewire stylesheets -->
+    @livewireStyles
+    <!-- /Livewire stylesheets -->
+
     <!-- Core JS files -->
     <script src="{{ asset('limitless/global/js/main/jquery.min.js') }}" defer></script>
     <script src="{{ asset('limitless/global/js/main/bootstrap.bundle.min.js') }}" defer></script>
@@ -49,6 +53,10 @@
 
 </div>
 <!-- /page content -->
+
+<!-- Livewire JS files -->
+@livewireScripts
+<!-- Livewire JS files -->
 </body>
 
 </html>
