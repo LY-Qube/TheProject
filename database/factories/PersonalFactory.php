@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Personal;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PersonalFactory extends Factory
@@ -22,7 +23,13 @@ class PersonalFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'last_name'         => $this->faker->lastName,
+            'first_name'        => $this->faker->firstName,
+            'gender'            => "Men",
+            'phone'             => $this->faker->phoneNumber,
+            'birth'             => Carbon::parse()->subYears(35),
+            'address'           => $this->faker->address,
+            'city'              => $this->faker->city
         ];
     }
 }
