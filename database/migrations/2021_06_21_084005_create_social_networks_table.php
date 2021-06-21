@@ -17,6 +17,8 @@ class CreateSocialNetworksTable extends Migration
             $table->string('github')->nullable();
             $table->string('youtube')->nullable();
             $table->string('linkedin')->nullable();
+            $table->string('reddit')->nullable();
+            $table->string('pinterest')->nullable();
 
             $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users');

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $last_name
  * @property string $first_name
  * @property string $gender
+ * @property string $phone
  * @property Carbon $birth
  * @property string $address
  * @property string $city
@@ -27,6 +28,7 @@ class Personal extends Model
         'last_name',
         'first_name',
         'gender',
+        'phone',
         'birth',
         'address',
         'city'

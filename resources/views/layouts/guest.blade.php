@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <title>{{ config('app.name') }} {{ (isset($titlePage)) ? ' - ' . $titlePage : '' }}</title>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+          type="text/css">
+    <link href="{{ asset('limitless/global/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('limitless/assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- Core JS files -->
+    <script src="{{ asset('limitless/global/js/main/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('limitless/global/js/main/bootstrap.bundle.min.js') }}" defer></script>
+    <!-- /core JS files -->
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Theme JS files -->
+    <script src="{{ asset('limitless/assets/js/app.js') }}" defer></script>
+    <!-- /theme JS files -->
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
+</head>
+<body>
+<x-layouts.guest-navbar></x-layouts.guest-navbar>
+
+<!-- Page content -->
+<div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Inner content -->
+        <div class="content-inner">
+
             {{ $slot }}
+
+            <x-layouts.guest-footer></x-layouts.guest-footer>
+
         </div>
-    </body>
+        <!-- /inner content -->
+
+    </div>
+    <!-- /main content -->
+
+</div>
+<!-- /page content -->
+</body>
+
 </html>

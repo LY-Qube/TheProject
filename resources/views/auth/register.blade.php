@@ -1,59 +1,154 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-slot name="titlePage">
+        Sign Up
+    </x-slot>
 
-        <form method="POST" action="{{ route('register') }}">
+    <!-- Content area -->
+    <div class="content d-flex justify-content-center align-items-center">
+
+        <!-- Registration form -->
+        <form action="{{ route('register') }}" method="POST" class="flex-fill">
             @csrf
+            <input type="hidden" name="job_position" value="CEO">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="icon-plus3 icon-2x text-success border-success border-3 rounded-pill p-3 mb-3 mt-1"></i>
+                                <h5 class="mb-0">Sign Up</h5>
+                                <span class="d-block text-muted">All fields are required</span>
+                            </div>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group form-group-feedback form-group-feedback-right">
+                                        <input type="text"
+                                               name="first_name"
+                                               value="{{ old('first_name') }}"
+                                               title="First Name"
+                                               class="form-control"
+                                               placeholder="First name" required>
+                                        <div class="form-control-feedback">
+                                            <i class="icon-user-check text-muted"></i>
+                                        </div>
+                                        @error('first_name')
+                                        <span class="form-text text-danger">
+                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group form-group-feedback form-group-feedback-right">
+                                        <input type="text"
+                                               name="last_name"
+                                               value="{{ old('last_name') }}"
+                                               title="Last Name"
+                                               class="form-control"
+                                               placeholder="Last name" required>
+                                        <div class="form-control-feedback">
+                                            <i class="icon-user-check text-muted"></i>
+                                        </div>
+                                        @error('last_name')
+                                        <span class="form-text text-danger">
+                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group form-group-feedback form-group-feedback-right">
+                                        <input type="email"
+                                               name="email"
+                                               value="{{ old('email', request('email')) }}"
+                                               class="form-control"
+                                               title="Your email"
+                                               placeholder="Your email" required>
+                                        <div class="form-control-feedback">
+                                            <i class="icon-mention text-muted"></i>
+                                        </div>
+                                        @error('email')
+                                        <span class="form-text text-danger">
+                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                            </div>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group form-group-feedback form-group-feedback-right">
+                                        <input type="password"
+                                               name="password"
+                                               class="form-control"
+                                               title="Create password"
+                                               placeholder="Create password" required>
+                                        <div class="form-control-feedback">
+                                            <i class="icon-user-lock text-muted"></i>
+                                        </div>
+                                        @error('password')
+                                        <span class="form-text text-danger">
+                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                                <div class="col-lg-6">
+                                    <div class="form-group form-group-feedback form-group-feedback-right">
+                                        <input type="password"
+                                               name="password_confirmation"
+                                               title="Repeat password"
+                                               class="form-control"
+                                               placeholder="Repeat password" required>
+                                        <div class="form-control-feedback">
+                                            <i class="icon-user-lock text-muted"></i>
+                                        </div>
+                                        @error('password_confirmation')
+                                        <span class="form-text text-danger">
+                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
+                            <div class="form-group mb-0">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="terms" class="custom-control-input" checked>
+                                    <span class="custom-control-label">
+                                        Accept <a href="{{ route('coming') }}">&nbsp;terms of service</a></span>
+                                </label>
+                                @error('terms')
+                                <span class="form-text text-danger">
+                                            <i class="icon-cancel-circle2 mr-2"></i> {{ $message }}
+                                        </span>
+                                @enderror
+                            </div>
+                        </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+                        <div class="card-footer bg-transparent text-right">
+                            <button type="submit" class="btn btn-teal btn-labeled btn-labeled-right"><b>
+                                    <i class="icon-plus3"></i></b>
+                                Create your account
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
-    </x-auth-card>
+        <!-- /registration form -->
+
+    </div>
+    <!-- /content area -->
+
 </x-guest-layout>

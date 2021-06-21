@@ -15,6 +15,7 @@ class CreatePersonalsTable extends Migration
             $table->string('first_name');
 
             $table->string('gender')->nullable();
+            $table->string('phone')->nullable();
             $table->date('birth')->nullable();
 
             $table->string('address')->nullable();

@@ -10,7 +10,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * @property string $name
  * @property string $avatar
  * @property string $job_position
  * @property string $email
@@ -32,7 +31,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
         'job_position',
         'avatar',
         'email',
@@ -73,6 +71,11 @@ class User extends Authenticatable
     public function personal(): HasOne
     {
         return $this->hasOne(Personal::class);
+    }
+
+    public function socialNetwork(): HasOne
+    {
+        return $this->hasOne(SocialNetwork::class);
     }
 
 }

@@ -27,6 +27,8 @@ class SocialNetwork extends Model
         'github',
         'youtube',
         'linkedin',
+        'reddit',
+        'pinterest',
         'user_id'
     ];
 
