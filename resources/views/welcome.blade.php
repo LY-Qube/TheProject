@@ -22,7 +22,7 @@
                      width="50"
                      height="10"/>
                 <nav class="hidden md:flex text-lg">
-                    <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">Home</a>
+                    <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">Dashboard</a>
                     <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">Services</a>
                     <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">About</a>
                     <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">Contact</a>
