@@ -26,12 +26,12 @@
                     <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">Services</a>
                     <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">About</a>
                     <a href="#" class="text-gray-800 hover:text-purple-300 py-3 px-6">Contact</a>
-                    <a href="#"
+                    <a href="{{ route('login') }}"
                        class="bg-green-200 hover:bg-green-300 rounded-full uppercase text-green-700 mr-5 py-3
                            px-6">
                         Sign In
                     </a>
-                    <a href="#"
+                    <a href="{{ route('register') }}"
                        class="bg-purple-200 hover:bg-purple-300 rounded-full uppercase text-purple-700 py-3 px-6">
                         Sign Up
                     </a>
