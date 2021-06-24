@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
 
-            $table->string('lang')->nullable();
+            $table->string('lang')->default('en');
             $table->boolean('is_admin')->default(false);
 
             $table->unsignedBigInteger('creator_id')->index()->nullable();

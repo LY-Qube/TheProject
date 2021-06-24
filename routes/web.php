@@ -7,7 +7,7 @@ Route::view('/','welcome')->name('welcome');
 Route::view('/coming','coming')->name('coming');
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth'])
+    ->middleware(['auth', 'admin'])
     ->name('dashboard');
 
 require __DIR__.'/auth.php';
