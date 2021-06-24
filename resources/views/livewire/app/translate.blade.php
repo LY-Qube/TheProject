@@ -18,7 +18,7 @@
             </a>
             <div class="dropdown-menu">
                 <a href="#"
-                   wire:click.prevent="change('en')"
+                   wire:click.prevent="change('en','{{ $uri }}')"
                    wire:key="1"
                    class="dropdown-item {{ ($lang === 'en') ? 'active' : '' }}">
                     <img src="{{ asset('limitless/global/images/lang/gb.png') }}"
@@ -28,7 +28,7 @@
                     English
                 </a>
                 <a href="#"
-                   wire:click.prevent="change('fr')"
+                   wire:click.prevent="change('fr','{{ $uri }}')"
                    wire:key="2"
                    class="dropdown-item {{ ($lang === 'fr') ? 'active' : '' }}">
                     <img src="{{ asset('limitless/global/images/lang/fr.png') }}"

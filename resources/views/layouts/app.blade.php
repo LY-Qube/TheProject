@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <title>{{ config('app.name') }} {{ (isset($titlePage)) ? ' - ' . $titlePage : '' }}</title>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="{{ asset('limitless/global/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('limitless/assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    @livewireStyles
+</head>
+<body>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<x-layouts.app-navbar></x-layouts.app-navbar>
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+<!-- Page content -->
+<div class="page-content">
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+    <x-layouts.app-sidebar></x-layouts.app-sidebar>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    {{ $slot }}
+
+    <!-- session Flash -->
+    @if (session('success'))
+        <div class="alert alert-teal alert-dismissible mb-2" style="position: fixed; bottom: 15px; left: 15px;z-index: 900">
+            <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+            {{ session('success') }}
         </div>
-    </body>
+    @else
+        <livewire:layouts.alert-success />
+    @endif
+
+</div>
+
+<!-- Core JS files -->
+<script src="{{ asset('limitless/global/js/main/jquery.min.js') }}"></script>
+<script src="{{ asset('limitless/global/js/main/bootstrap.bundle.min.js') }}"></script>
+<!-- /core JS files -->
+
+<!-- Theme JS files -->
+<script src="{{ asset('limitless/assets/js/app.js') }}"></script>
+<!-- /theme JS files -->
+@livewireScripts
+<script>
+    window.addEventListener('offline', () => {
+        document.getElementById('online-status').innerHTML =
+            '<span class="badge badge-danger my-3 my-lg-0 ml-lg-3">{{ __("template/auth.OffLine") }}</span>'
+    })
+    window.addEventListener('online', () => {
+        document.getElementById('online-status').innerHTML =
+            "<span class='badge badge-success my-3 my-lg-0 ml-lg-3'>{{ __('template/auth.online') }}</span>"
+    })
+</script>
+</body>
 </html>

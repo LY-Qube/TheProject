@@ -9,9 +9,9 @@
         </a>
     </div>
     <div class="d-flex justify-content-end align-items-center ml-auto">
-    <!-- Lang -->
-        <livewire:app.translate />
-     <!--    /Lang -->
+        <!-- Lang -->
+        <livewire:app.translate/>
+        <!--    /Lang -->
         <ul class="navbar-nav flex-row">
             <li class="nav-item">
                 <a href="{{ route('coming') }}" class="navbar-nav-link">

@@ -51,6 +51,19 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function getFullNameAttribute(): string
+    {
+        return $this->personal->last_name . ' ' . $this->personal->first_name;
+    }
+
+    public function getProfileImageAttribute(): string
+    {
+        if ($this->avatar) {
+            return  'storage/' . $this->avatar;
+        }
+        return 'images/user-icon.jpg';
+    }
+
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class);

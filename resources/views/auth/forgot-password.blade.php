@@ -1,5 +1,9 @@
 <x-guest-layout>
 
+    <x-slot name="titlePage">
+        {{ __('auth/forgot-password.Password recovery') }}
+    </x-slot>
+
     <!-- Content area -->
     <div class="content d-flex justify-content-center align-items-center">
 

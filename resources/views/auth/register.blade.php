@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <x-slot name="titlePage">
-        Sign Up
+        {{ __('auth/register.sign up') }}
     </x-slot>
 
     <!-- Content area -->

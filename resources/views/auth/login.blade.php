@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <x-slot name="titlePage">
-        Sign In
+        {{ __('auth/login.login account') }}
     </x-slot>
 
     <!-- Content area -->

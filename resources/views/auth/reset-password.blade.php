@@ -1,4 +1,9 @@
 <x-guest-layout>
+
+    <x-slot name="titlePage">
+        {{ __('auth/reset-password.Update your password') }}
+    </x-slot>
+
     <!-- Content area -->
     <div class="content d-flex justify-content-center align-items-center">
 
