@@ -10,5 +10,6 @@ return [
     'password confirmation'         => "Repeat your password",
     'create'                        => "Create your account",
     'accept'                        => "Accept",
-    'terms of service'              => "terms of service"
+    'terms of service'              => "terms of service",
+    'email_error'                   => "Please Sign Up with default email"
 ];

@@ -20,7 +20,7 @@ class IsAdmin
             if (auth()->user()->is_admin) {
                 return $next($request);
             }
-            return redirect()->to('kjkj');
+            return redirect()->to('dashboard');
         }
         return  redirect()->route('login');
     }

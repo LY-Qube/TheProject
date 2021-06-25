@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
                 'is_admin'  => true,
                 'job_position' => "CEO"
             ]);
+        $this->call(RoleSeeder::class);
     }
 }

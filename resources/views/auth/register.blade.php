@@ -10,7 +10,7 @@
         <!-- Registration form -->
         <form action="{{ route('register') }}" method="POST" class="flex-fill">
             @csrf
-            <input type="hidden" name="job_position" value="CEO">
+            <input type="hidden" name="access_key" value="{{ request('access_key') }}">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="card mb-0">
@@ -60,7 +60,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="row">
                                 <div class="col-lg-12">

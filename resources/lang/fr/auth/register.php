@@ -10,5 +10,6 @@ return [
     'password confirmation'         => "Répétez votre mot de passe",
     'create'                        => "Créez votre compte",
     'accept'                        => "J'accepte",
-    'terms of service'              => "les conditions d'utilisation"
+    'terms of service'              => "les conditions d'utilisation",
+    'email_error'                   => "Veuillez s'inscrire avec l'adresse email par-defaut"
 ];

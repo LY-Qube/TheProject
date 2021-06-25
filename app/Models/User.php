@@ -95,4 +95,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function accessKeys(): HasMany
+    {
+        return $this->hasMany(AccessKey::class);
+    }
+
 }

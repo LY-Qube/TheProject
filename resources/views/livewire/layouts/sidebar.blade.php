@@ -51,6 +51,17 @@
                     </span>
                 </a>
             </li>
+            @can('viewAny',\App\Models\AccessKey::class)
+                <li class="nav-item">
+                    <a href="{{ route('access-key') }}"
+                       class="nav-link {{ ($active === 'access-key') ? 'active' : '' }} ">
+                        <i class="icon-key"></i>
+                        <span>
+                        {{ __('access-key/access-key.Access Keys') }}
+                    </span>
+                    </a>
+                </li>
+            @endcan
         </ul>
     </div>
     <!-- /main navigation -->
